@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-void main(){
+void main() {
     final var SCANNER = new Scanner(System.in);
     final var RED = "\033[31m";
     final var RESET = "\033[0m";
 
-    while (true){
+    while (true) {
         System.out.print("Enter year: ");
         int year = SCANNER.nextInt();
 
@@ -20,18 +20,18 @@ void main(){
         boolean fallThrough = false;
 
         if (month.equals("JANUARY") || month.equals("JAN")) {
+            totalDays = 31;
+            fallThrough = true;
+        }
+        if (fallThrough || month.equals("FEBRUARY") || month.equals("FEB")) {
+            totalDays += (year % 4 == 0 ? 29 : 28);
+            fallThrough = true;
+        }
+        if (fallThrough || month.equals("MARCH") || month.equals("MAR")) {
             totalDays += 31;
             fallThrough = true;
         }
-        if (fallThrough || month.equals("FEBRUARY") || month.equals("FEB")){
-            totalDays += 28;
-            fallThrough = true;
-        }
-        if (fallThrough || month.equals("MARCH") || month.equals("MAR")){
-            totalDays += 31;
-            fallThrough = true;
-        }
-        if (fallThrough || month.equals("APRIL") || month.equals("APR")){
+        if (fallThrough || month.equals("APRIL") || month.equals("APR")) {
             totalDays += 30;
             fallThrough = true;
         }
@@ -39,7 +39,7 @@ void main(){
             totalDays += 31;
             fallThrough = true;
         }
-        if (fallThrough || month.equals("JUNE") || month.equals("JUN")){
+        if (fallThrough || month.equals("JUNE") || month.equals("JUN")) {
             totalDays += 30;
             fallThrough = true;
         }
@@ -53,7 +53,7 @@ void main(){
         }
         if (fallThrough || month.equals("SEPTEMBER") || month.equals("SEP")) {
             totalDays += 30;
-            fallThrough= true;
+            fallThrough = true;
         }
         if (fallThrough || month.equals("OCTOBER") || month.equals("OCT")) {
             totalDays += 31;
@@ -64,12 +64,12 @@ void main(){
             fallThrough = true;
         }
         if (fallThrough || month.equals("DECEMBER") || month.equals("DEC")) {
-            totalDays = 31;
+            totalDays += 31;
             fallThrough = true;
         }
-        if (!fallThrough){
+        if (!fallThrough) {
             System.out.println("Invalid month, try again");
-        }else{
+        } else {
             System.out.println(STR."Total number of days since \{month}: \{totalDays}");
         }
     }

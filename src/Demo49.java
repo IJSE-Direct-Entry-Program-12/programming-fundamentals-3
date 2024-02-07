@@ -10,6 +10,7 @@ void main(){
         System.out.print("Enter your grade: ");
         String grade = SCANNER.next();
 
+        // grade == "A+"
         if (grade.equals("A+")) System.out.println("Your marks: [90-100]");
         else if (grade.equals("A")) System.out.println("Your marks: [75-89]");
         else if (grade.equals("B+")) System.out.println("Your marks: [65-74]");

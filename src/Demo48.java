@@ -16,7 +16,7 @@ void main(){
             continue;
         }
 
-        if (marks >= 90) System.out.println("A+");
+        if (marks >= 90 ) System.out.println("A+");
         else if (marks >= 75) System.out.println("A");
         else if (marks >= 65) System.out.println("B+");
         else if (marks >= 60) System.out.println("B");
